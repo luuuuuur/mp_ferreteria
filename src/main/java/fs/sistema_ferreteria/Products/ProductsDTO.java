@@ -7,11 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @Getter 
 @Setter 
-class ProductsDTO {
+public class ProductsDTO {
     private Long id;
     private String Nombre;
     private double precio;
     private String descripcion;
-    private Long ID_PPM;
-    private Long ID_PM;
+    private Long id_provider;
 }

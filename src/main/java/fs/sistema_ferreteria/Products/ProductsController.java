@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor 
 class ProductsController {
     //Spring mapea por si solo el BEAN e INSTANCIA la clase detrás de cámaras
+    //por ende no se necesita autowired para este caso
     private final ProductsService PS;
     @PostMapping("/add")
     public ResponseEntity<String>Add(@RequestBody ProductsDTO pdto){
