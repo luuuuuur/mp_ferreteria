@@ -20,6 +20,7 @@ public class ProductProviderController {
     @PostMapping("/add")
     public ResponseEntity<?> postMethodName(@RequestBody ProductProviderDTO pDto) {
         ProductProviderModel ppm = pps.providerModel(pDto);
+        System.out.println(ppm);
         ResponseEntity<?> rs = pps.SaveProvider(ppm);
         return rs;
     }

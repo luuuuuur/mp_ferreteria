@@ -21,6 +21,7 @@ import fs.sistema_ferreteria.ProductProvider.ProductProviderModel;
 @AllArgsConstructor 
 @Getter 
 @Setter
+@NoArgsConstructor 
 public class ProductsModel {
     //esto genera una columna en SQL que se llamará "product_id" que actuará como clave primaria
     @Id

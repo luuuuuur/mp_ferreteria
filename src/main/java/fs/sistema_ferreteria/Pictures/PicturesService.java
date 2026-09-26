@@ -65,7 +65,7 @@ class PicturesService{
     public ResponseEntity<String> SavePhotos(Object o, Long productoId){
         ProductsModel PM = PSI.findById(productoId).orElse(null);
         if(PM == null){
-            return ResponseEntity.status(404).body("Not found");
+            return ResponseEntity.status(404).body("Not product found");
         }
         Object T = PicturesService.DetectType(o);
         if(T instanceof Boolean){
@@ -73,16 +73,23 @@ class PicturesService{
         }
         //es un solo archivo
         if(T instanceof MultipartFile F){
-            File ffFile = new File("/pictures");
+            File directory = new File("/home/miku/Fullstack_II/pictures");
+            if (!directory.exists()) {
+                    directory.mkdirs();
+            }
+
             try{
-                F.transferTo(ffFile);
+                File file = new File(directory, F.getOriginalFilename());
+                F.transferTo(file);
                 String URL = F.getOriginalFilename();
                 PicturesModel picturesModel = picturesModel(URL, PM);
                 PI.save(picturesModel);
                 return ResponseEntity.ok("Foto guardada Correctamente!");
                 
             }catch(IOException IO){
-                ResponseEntity.status(500).body(IO.getMessage());
+                    return ResponseEntity
+                    .status(500)
+                    .body(IO.getMessage());
             }
         }  
         return ResponseEntity.badRequest().body("Invalid Request");
@@ -91,6 +98,9 @@ class PicturesService{
 
     //método para entregar la foto al provider
     //entrega una URL
+    /*
+    
+    este metodo aun no está probado
     public String GetPhotoURL(Long providerId){
         ProductProviderModel PPM = PPI.getReferenceById(providerId);
         // si no existe el provider
@@ -104,5 +114,7 @@ class PicturesService{
         }
         return (String) PM.getURL_Foto();
     }
+    
+    */
     
 }

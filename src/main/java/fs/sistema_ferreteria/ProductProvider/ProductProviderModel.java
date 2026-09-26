@@ -1,14 +1,9 @@
 package fs.sistema_ferreteria.ProductProvider;
-
-
-import fs.sistema_ferreteria.Pictures.PicturesModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,10 +14,9 @@ import lombok.Setter;
 @Entity 
 @Table (name = "ProductProvider")
 @Data 
-@AllArgsConstructor 
 @Setter 
 @Getter 
-@NoArgsConstructor 
+@NoArgsConstructor
 public class ProductProviderModel {
     @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -30,7 +24,11 @@ public class ProductProviderModel {
     private Long providerId;
     @Column(name = "provider_name")
     private String NombreProveedor;
-    @OneToOne
-    @JoinColumn(name = "photos_id",referencedColumnName = "id", nullable = true) //icóno del proveedor
-    private PicturesModel PM;
+    public ProductProviderModel(String nombre){
+        this.NombreProveedor = nombre;
+        
+    }
+    //@OneToOne
+    //@JoinColumn(name = "photos_id",referencedColumnName = "id", nullable = true) //icóno del proveedor
+    //private PicturesModel PM;
 }

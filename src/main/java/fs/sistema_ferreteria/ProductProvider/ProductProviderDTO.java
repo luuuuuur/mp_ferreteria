@@ -5,13 +5,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//PP = ProductProvider
+//esto es lo que llega por red
 @Data 
 @Getter 
-@Setter
-@AllArgsConstructor  
-@NoArgsConstructor
+@AllArgsConstructor 
+@NoArgsConstructor 
+@Setter 
 class ProductProviderDTO {
-    private String Name;
+    private String NombreProveedor;
 
 }

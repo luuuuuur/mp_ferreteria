@@ -30,14 +30,14 @@ public class ProductProviderService{
 
     }
     public ProductProviderModel providerModel(ProductProviderDTO pDto){
-        ProductProviderModel PPM = new ProductProviderModel(null, pDto.getName(), null);
+        ProductProviderModel PPM = new ProductProviderModel(pDto.getNombreProveedor());
         return PPM;
     }
 
     public ResponseEntity<?> SaveProvider(ProductProviderModel PPM){
         try{
             PPI.save(PPM);
-            return ResponseEntity.ok("Proveedor Guardado!");
+            return ResponseEntity.ok("Proveedor Guardado! " + PPM.getProviderId() + PPM.getNombreProveedor());
         }catch(Exception E){
             return ResponseEntity.status(500).body(E.getMessage());
         }
