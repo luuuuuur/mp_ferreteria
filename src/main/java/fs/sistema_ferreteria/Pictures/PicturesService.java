@@ -1,7 +1,6 @@
 package fs.sistema_ferreteria.Pictures;
 import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
-import org.apache.catalina.connector.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

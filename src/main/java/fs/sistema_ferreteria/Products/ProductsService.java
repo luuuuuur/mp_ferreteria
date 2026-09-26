@@ -2,7 +2,6 @@ package fs.sistema_ferreteria.Products;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import fs.sistema_ferreteria.ProductProvider.ProductProviderInterface;
 import fs.sistema_ferreteria.ProductProvider.ProductProviderModel;

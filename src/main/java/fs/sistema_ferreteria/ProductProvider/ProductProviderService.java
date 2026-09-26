@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import fs.sistema_ferreteria.Products.ProductsModel;
 import fs.sistema_ferreteria.Products.ProductsServiceInterface;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
